@@ -7,8 +7,8 @@ from app.models import Course, Lesson, StudyProgress, Base
 from app.schemas import CourseResponse, LessonResponse, ProgressUpdate
 from app.routes.auth import get_current_user, User
 
-SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"
-engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
+SQLALCHEMY_DATABASE_URL = "mysql+pymysql://preschool:password123@localhost:3306/preschool_app"
+engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base.metadata.create_all(bind=engine)
 

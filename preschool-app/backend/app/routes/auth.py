@@ -8,8 +8,8 @@ from app.models import User, Base
 from app.schemas import UserCreate, UserResponse
 from app.utils.jwt import verify_password, get_password_hash, create_access_token, decode_access_token
 
-SQLALCHEMY_DATABASE_URL = "sqlite:///./test.db"
-engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})
+SQLALCHEMY_DATABASE_URL = "mysql+pymysql://preschool:password123@localhost:3306/preschool_app"
+engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base.metadata.create_all(bind=engine)
 
